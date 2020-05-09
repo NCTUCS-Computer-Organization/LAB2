@@ -9,13 +9,13 @@
 - [ ] ALU_ctrl.v
 - [ ] Decoder.v
 - [x] instr_Memory.v
-- [ ] MUX_2to1.v
+- [x] MUX_2to1.v
 - [x] ProgramCounter.v
 - [x] Reg_File.v
-- [ ] Shift_Left_Two_32.v
-- [ ] Sign_Extend.v
+- [x] Shift_Left_Two_32.v
+- [x] Sign_Extend.v
 - [ ] Simple_Single_CPU.v
-- [ ] Test_bench.v
+- [x] Test_bench.v
 
 
 ## OPcode & Control
