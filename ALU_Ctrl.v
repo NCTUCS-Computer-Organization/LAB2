@@ -17,4 +17,65 @@ reg        [4-1:0] ALUCtrl_o;
 
 //Select exact operation
 
+always @( * ) begin
+	if(ALUOp_i==3'b000)begin
+		if(funct_i==6'b100001)begin //addu
+			ALUCtrl_o <= 4'b0010; //ADD
+		end
+		else if(funct_i==6'b100011)begin //subu
+			ALUCtrl_o <= 4'b0110; //SUB
+		end
+		else if(funct_i==6'b100100)begin //and
+			ALUCtrl_o <= 4'b0000; //AND
+		end
+		else if(funct_i==6'100101)begin //or
+			ALUCtrl_o <= 4'b0001; //OR
+		end
+		else if(funct_i==6'101010)begin //slt
+			ALUCtrl_o <= 4'b0111; //SLT		
+		end
+		else if(funct_i==6'000011)begin //sra
+			ALUCtrl_o <= 4'b1110;		
+		end	
+		else if(funct_i==6'000011)begin //sra
+			ALUCtrl_o <= 4'b1111;		
+		end
+	end	
+	else if(ALUOp_i==3'b001)begin //for add
+		ALUCtrl_o <= 4'b0010; //ADD
+	end
+	else if(ALUOp_i==3'b010)begin
+		ALUCtrl_o <= 4'b0110; //SUB
+	end
+	else if(ALUOp_i==3'b011)begin
+		ALUCtrl_o <= 4'b0110; //SUB
+	end
+	else if(ALUOp_i==3'b111)begin
+		ALUCtrl_o <= 4'b0110; //SUB	
+	end
+	else if(ALUOp_i==3'b010)begin
+		ALUCtrl_o <= 4'b0110; //SUB
+	end
+end
+
+
 endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
