@@ -1,5 +1,9 @@
 # LAB2
 
+## 此次LAB的圖
+![](https://i.imgur.com/y4eaHCb.jpg)
+
+
 ## commit紀錄區
 1： 新增Adder.v Mux.v
 
