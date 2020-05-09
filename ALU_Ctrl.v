@@ -3,7 +3,7 @@
 module ALU_Ctrl(
         funct_i,
         ALUOp_i,
-        ALUCtrl_o
+        ALUCtrl_o,
         );
 
 //I/O ports
@@ -46,14 +46,17 @@ always @( * ) begin
 	else if(ALUOp_i==3'b010)begin
 		ALUCtrl_o <= 4'b0110; //SUB
 	end
+	else if(ALUOp_i==3'b100)begin
+		ALUCtrl_o <= 4'b0011; //SUB
+	end
 	else if(ALUOp_i==3'b011)begin
-		ALUCtrl_o <= 4'b0110; //SUB
+		ALUCtrl_o <= 4'b1011; //LUI	
 	end
 	else if(ALUOp_i==3'b111)begin
-		ALUCtrl_o <= 4'b0110; //SUB	
+		ALUCtrl_o <= 4'b0001; //SUB
 	end
-	else if(ALUOp_i==3'b010)begin
-		ALUCtrl_o <= 4'b0110; //SUB
+	else begin
+		ALUCtrl_o <= 4'b1001;
 	end
 end
 

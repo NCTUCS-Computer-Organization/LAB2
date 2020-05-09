@@ -99,7 +99,8 @@ ALU ALU(
     .src2_i(data_into_ALU_after_mux),
     .ctrl_i(AlU_control),
     .result_o(RD_data),
-    .zero_o(zero_alu)
+    .zero_o(zero_alu),
+	.shamt_i(instruction[10:6]) //new! for get shamt in R-type
     );
 
 Adder Adder2(
