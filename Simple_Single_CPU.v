@@ -19,7 +19,7 @@ wire RegWrite;
 wire branch;
 wire [3-1:0]  ALUOp;
 wire [5-1:0]  number_WriteReg_fromMux;
-wire [32-1:0] Write_data;
+//wire [32-1:0] Write_data;
 wire [32-1:0] RS_data;
 wire [32-1:0] RT_data;
 wire [32-1:0] RD_data;
@@ -62,7 +62,7 @@ Reg_File RF(
     .RTaddr_i(instruction[20:16]) ,
     .RDaddr_i(number_WriteReg_fromMux) , //from mux before
     .RDdata_i(RD_data)  ,
-    .RegWrite_i (Regwrite),
+    .RegWrite_i (RegWrite),
     .RSdata_o(RS_data) ,   //output
     .RTdata_o(RT_data)	   //output	
     );
