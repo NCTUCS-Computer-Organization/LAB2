@@ -18,7 +18,7 @@ output           zero_o;
 
 //Internal signals
 reg    [32-1:0]  result_o;
-wire             zero_o;
+reg zero_o;
 
 always @(*)begin
 	if(ctrl_i==4'b0010)begin //ADD
@@ -34,13 +34,13 @@ always @(*)begin
 		result_o <= (src1_i | src2_i);	
 	end
 	else if(ctrl_i==4'b0111)begin //SLT
-		result_o <= (src1_i < src2_i;)
+		result_o <= (src1_i < src2_i)?1'b1:1'b0;
 	end
 	else if(ctrl_i==4'b1110)begin //SRA
 		result_o <= (src1_i >>> src2_i); // >>> for "signed"
 	end
 	else if(ctrl_i==4'b1011)begin //lui
-		result_o <= (scr1_i<<16);	
+		result_o <= (src1_i<<16);	
 	end
 	else if(ctrl_i==4'b0011)begin //beq
 		result_o <= (src1_i - src2_i);	
@@ -49,7 +49,7 @@ always @(*)begin
 		result_o <= (src1_i - src2_i);	
 	end
 	else begin
-		result<=0;
+		result_o <=0;
 	end
 
 	if(ctrl_i==4'b1001)begin // bne:if not equal->result!=0->but zero should=0

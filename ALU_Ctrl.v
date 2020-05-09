@@ -27,16 +27,16 @@ always @( * ) begin
 		else if(funct_i==6'b100100)begin //and
 			ALUCtrl_o <= 4'b0000; //AND
 		end
-		else if(funct_i==6'100101)begin //or
+		else if(funct_i==6'b100101)begin //or
 			ALUCtrl_o <= 4'b0001; //OR
 		end
-		else if(funct_i==6'101010)begin //slt
+		else if(funct_i==6'b101010)begin //slt
 			ALUCtrl_o <= 4'b0111; //SLT		
 		end
-		else if(funct_i==6'000011)begin //sra
+		else if(funct_i==6'b000011)begin //sra
 			ALUCtrl_o <= 4'b1110;		
 		end	
-		else if(funct_i==6'000011)begin //sra
+		else if(funct_i==6'b000011)begin //sra
 			ALUCtrl_o <= 4'b1111;		
 		end
 	end	

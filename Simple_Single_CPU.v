@@ -1,4 +1,4 @@
-// Author:
+// Author: 0711282 邱頎霖
 
 module Simple_Single_CPU(
     clk_i,
@@ -9,8 +9,10 @@ module Simple_Single_CPU(
 input clk_i;
 input rst_i;
 
-wire[32-1:0] pc_plus_4;
-wire[32-1:0] instruction;
+wire [32-1:0] pc_in;
+wire [32-1:0] pc_out;
+wire [32-1:0] pc_plus_4;
+wire [32-1:0] instruction;
 wire RegDst;
 wire ALUSrc;
 wire RegWrite;
@@ -20,10 +22,10 @@ wire [5-1:0]  number_WriteReg_fromMux;
 wire [32-1:0] Write_data;
 wire [32-1:0] RS_data;
 wire [32-1:0] RT_data;
+wire [32-1:0] RD_data;
 wire [4-1:0] AlU_control;
 wire [32-1:0] data_after_se;
 wire [32-1:0] data_into_ALU_after_mux;
-wire [32-1:0] result_alu;
 wire zero_alu;
 wire [32-1:0] data_after_left2;
 wire [32-1:0] branch_target_addr;
@@ -31,18 +33,18 @@ wire [32-1:0] branch_target_addr;
 ProgramCounter PC(
     .clk_i(clk_i),
     .rst_i (rst_i),
-    .pc_in_i(pc_in_i),
-    .pc_out_o(pc_out_o)
+    .pc_in_i(pc_in),
+    .pc_out_o(pc_out)
     );
 
 Adder Adder1(
-    .src1_i(pc_out_o),
-    .src2_i(4),
+    .src1_i(pc_out),
+    .src2_i(32'd4),    //+4 and 32bit
     .sum_o(pc_plus_4)
     );
 
 Instr_Memory IM(
-    .pc_addr_i(pc_out_o),
+    .pc_addr_i(pc_out),
     .instr_o(instruction)
     );
 
@@ -75,20 +77,20 @@ Decoder Decoder(
     );
 
 ALU_Ctrl AC(
-    .funct_i(isntruction[5:0]),
-    .ALUOp_i(ALUop),
+    .funct_i(instruction[5:0]),
+    .ALUOp_i(ALUOp),
     .ALUCtrl_o(AlU_control)
     );
 
 Sign_Extend SE(
-    .data_i(instrution[15:0]),
+    .data_i(instruction[15:0]),
     .data_o(data_after_se)
     );
 
 MUX_2to1 #(.size(32)) Mux_ALUSrc(
     .data0_i(RT_data), //RT's data
     .data1_i(data_after_se), //data after se
-    .select_i(ALUscr),
+    .select_i(ALUSrc),
     .data_o(data_into_ALU_after_mux)
     );
 
@@ -96,7 +98,7 @@ ALU ALU(
     .src1_i(RS_data),
     .src2_i(data_into_ALU_after_mux),
     .ctrl_i(AlU_control),
-    .result_o(result_alu),
+    .result_o(RD_data),
     .zero_o(zero_alu)
     );
 
@@ -111,6 +113,7 @@ Shift_Left_Two_32 Shifter(
     .data_o(data_after_left2)
     );
 //choose next instr'address
+
 MUX_2to1 #(.size(32)) Mux_PC_Source(
     .data0_i(pc_plus_4),
     .data1_i(branch_target_addr),
