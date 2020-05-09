@@ -1,4 +1,4 @@
-// Author:
+// Author: 0711282 邱頎霖
 
 module ALU(
     src1_i,
@@ -37,7 +37,26 @@ always @(*)begin
 		result_o <= (src1_i < src2_i;)
 	end
 	else if(ctrl_i==4'b1110)begin //SRA
-		result_o <= (src1_i >>> src2_i);
+		result_o <= (src1_i >>> src2_i); // >>> for "signed"
+	end
+	else if(ctrl_i==4'b1011)begin //lui
+		result_o <= (scr1_i<<16);	
+	end
+	else if(ctrl_i==4'b0011)begin //beq
+		result_o <= (src1_i - src2_i);	
+	end
+	else if(ctrl_i==4'b1001)begin //bne
+		result_o <= (src1_i - src2_i);	
+	end
+	else begin
+		result<=0;
+	end
+
+	if(ctrl_i==4'b1001)begin // bne:if not equal->result!=0->but zero should=0
+		zero_o <= (result_o==0)?1'b0:1'b1;
+	end
+	else begin
+		zero_o <= (result_o==0)?1'b1:1'b0;
 	end
 end
 

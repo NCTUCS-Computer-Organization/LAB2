@@ -1,4 +1,4 @@
-// Author:
+// Author:0711282 邱頎霖
 
 module ALU_Ctrl(
         funct_i,
@@ -7,10 +7,9 @@ module ALU_Ctrl(
         );
 
 //I/O ports
-input      [6-1:0] funct_i;
-input      [3-1:0] ALUOp_i;
-
-output     [4-1:0] ALUCtrl_o;
+input      [6-1:0] funct_i; //function code
+input      [3-1:0] ALUOp_i; // aluop
+output     [4-1:0] ALUCtrl_o; // 4 bit alu_controi to alu
 
 //Internal Signals
 reg        [4-1:0] ALUCtrl_o;

@@ -1,4 +1,4 @@
-// Author:
+// Author:0711282 邱頎霖
 
 module Decoder(
     instr_op_i,
