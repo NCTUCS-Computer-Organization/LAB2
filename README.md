@@ -3,12 +3,22 @@
 ## 此次LAB的圖
 ![](https://i.imgur.com/y4eaHCb.jpg)
 
+## Files
+- [ ] Adder.v
+- [ ] ALU.v
+- [ ] ALU_ctrl.v
+- [ ] Decoder.v
+- [x] instr_Memory.v
+- [ ] MUX_2to1.v
+- [x] ProgramCounter.v
+- [x] Reg_File.v
+- [ ] Shift_Left_Two_32.v
+- [ ] Sign_Extend.v
+- [ ] Simple_Single_CPU.v
+- [ ] Test_bench.v
 
-## commit紀錄區
-1： 新增Adder.v Mux.v
 
-2.  新增Signextend.v
-
+## OPcode & Control
 
 AlU 控制:
 
