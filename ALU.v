@@ -21,6 +21,14 @@ output           zero_o;
 reg    [32-1:0]  result_o;
 reg zero_o;
 
+wire signed [32-1:0] tmp_src1;
+wire signed [32-1:0] tmp_src2;
+wire signed [5-1:0] tmp_shamt;
+
+assign tmp_src1 = src1_i;
+assign tmp_src2 = src2_i;
+assign tmp_shamt = shamt_i;
+
 always @(*)begin
 	if(ctrl_i==4'b0010)begin //ADD
 		result_o <= (src1_i + src2_i);
@@ -38,11 +46,12 @@ always @(*)begin
 		result_o <= (src1_i < src2_i)?1'b1:1'b0;
 		//result_o <= (src1_i < src2_i)
 	end
-	else if(ctrl_i==4'b1111)begin //SRA
-		result_o <= (src1_i >>> src2_i); // >>> for "signed"
+	else if(ctrl_i==4'b1111)begin //SRAV
+		result_o <= (tmp_src2 >>> tmp_src1);  // >>> for "signed" -> wire should be signed = =
+		//result_o <= tmp_src2; // >>> tmp_src2);
 	end
 	else if(ctrl_i==4'b1110)begin //SRA
-		result_o <= (src1_i >>> shamt_i); // >>> for "signed"
+		result_o <= (tmp_src2 >>> tmp_shamt); // >>> for "signed"
 	end
 	else if(ctrl_i==4'b1011)begin //lui
 		result_o <= src2_i<<16;	

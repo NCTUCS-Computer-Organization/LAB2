@@ -36,7 +36,7 @@ always @( * ) begin
 		else if(funct_i==6'b000011)begin //sra
 			ALUCtrl_o <= 4'b1110;		
 		end	
-		else if(funct_i==6'b000011)begin //sra
+		else if(funct_i==6'b000111)begin //srav
 			ALUCtrl_o <= 4'b1111;		
 		end
 	end	
