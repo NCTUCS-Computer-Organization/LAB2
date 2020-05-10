@@ -1,20 +1,21 @@
 # LAB2
 
 ## 此次LAB的圖
-![](https://i.imgur.com/y4eaHCb.jpg)
+![](https://i.imgur.com/fOMfbVS.png)
+
 
 ## Files
-- [ ] Adder.v
-- [ ] ALU.v
-- [ ] ALU_ctrl.v
-- [ ] Decoder.v
+- [x] Adder.v
+- [x] ALU.v
+- [x] ALU_ctrl.v
+- [x] Decoder.v
 - [x] instr_Memory.v
 - [x] MUX_2to1.v
 - [x] ProgramCounter.v
 - [x] Reg_File.v
 - [x] Shift_Left_Two_32.v
 - [x] Sign_Extend.v
-- [ ] Simple_Single_CPU.v
+- [x] Simple_Single_CPU.v
 - [x] Test_bench.v
 
 
