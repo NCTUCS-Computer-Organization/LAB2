@@ -18,7 +18,7 @@ reg        [4-1:0] ALUCtrl_o;
 
 always @( * ) begin
 	if(ALUOp_i==3'b000)begin
-		if(funct_i==6'b100001)begin //addu
+		if(funct_i==6'b100001)begin //addu 		// ok
 			ALUCtrl_o <= 4'b0010; //ADD
 		end
 		else if(funct_i==6'b100011)begin //subu
@@ -33,10 +33,10 @@ always @( * ) begin
 		else if(funct_i==6'b101010)begin //slt
 			ALUCtrl_o <= 4'b0111; //SLT		
 		end
-		else if(funct_i==6'b000011)begin //sra
+		else if(funct_i==6'b000011)begin //sra 		// ok
 			ALUCtrl_o <= 4'b1110;		
 		end	
-		else if(funct_i==6'b000111)begin //srav
+		else if(funct_i==6'b000111)begin //srav 	// ok
 			ALUCtrl_o <= 4'b1111;		
 		end
 	end	
@@ -50,10 +50,10 @@ always @( * ) begin
 		ALUCtrl_o <= 4'b0011; //SUB
 	end
 	else if(ALUOp_i==3'b011)begin
-		ALUCtrl_o <= 4'b1011; //LUI	
+		ALUCtrl_o <= 4'b1011; //LUI		//ok
 	end
 	else if(ALUOp_i==3'b111)begin
-		ALUCtrl_o <= 4'b0001; //SUB
+		ALUCtrl_o <= 4'b0001; //ori
 	end
 	else begin
 		ALUCtrl_o <= 4'b1001;

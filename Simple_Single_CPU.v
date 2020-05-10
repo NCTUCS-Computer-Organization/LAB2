@@ -84,7 +84,8 @@ ALU_Ctrl AC(
 
 Sign_Extend SE(
     .data_i(instruction[15:0]),
-    .data_o(data_after_se)
+    .data_o(data_after_se),
+	.ctrl_i(AlU_control)
     );
 
 MUX_2to1 #(.size(32)) Mux_ALUSrc(

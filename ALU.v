@@ -41,6 +41,7 @@ always @(*)begin
 	end
 	else if(ctrl_i==4'b0001)begin //OR
 		result_o <= (src1_i | src2_i);	
+		//result_o <= src2_i;		
 	end
 	else if(ctrl_i==4'b0111)begin //SLT
 		result_o <= (src1_i < src2_i)?1'b1:1'b0;
@@ -49,6 +50,7 @@ always @(*)begin
 	else if(ctrl_i==4'b1111)begin //SRAV
 		result_o <= (tmp_src2 >>> tmp_src1);  // >>> for "signed" -> wire should be signed = =
 		//result_o <= tmp_src2; // >>> tmp_src2);
+		//SRAV rd, rt, rs
 	end
 	else if(ctrl_i==4'b1110)begin //SRA
 		result_o <= (tmp_src2 >>> tmp_shamt); // >>> for "signed"
