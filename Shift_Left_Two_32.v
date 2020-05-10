@@ -1,4 +1,4 @@
-// Author:
+// Author: 0711282 邱頎霖
 
 module Shift_Left_Two_32(
     data_i,
