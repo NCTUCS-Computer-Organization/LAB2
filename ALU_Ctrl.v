@@ -40,20 +40,20 @@ always @( * ) begin
 			ALUCtrl_o <= 4'b1111;		
 		end
 	end	
-	else if(ALUOp_i==3'b001)begin //for add
+	else if(ALUOp_i==3'b001)begin //addi
 		ALUCtrl_o <= 4'b0010; //ADD
 	end
 	else if(ALUOp_i==3'b010)begin
-		ALUCtrl_o <= 4'b0110; //SUB
+		ALUCtrl_o <= 4'b0110; //bne
 	end
 	else if(ALUOp_i==3'b100)begin
-		ALUCtrl_o <= 4'b0011; //SUB
+		ALUCtrl_o <= 4'b0011; //beq
 	end
 	else if(ALUOp_i==3'b011)begin
 		ALUCtrl_o <= 4'b1011; //LUI		//ok
 	end
 	else if(ALUOp_i==3'b111)begin
-		ALUCtrl_o <= 4'b0001; //ori
+		ALUCtrl_o <= 4'b0001; //ori		//ok
 	end
 	else begin
 		ALUCtrl_o <= 4'b1001;

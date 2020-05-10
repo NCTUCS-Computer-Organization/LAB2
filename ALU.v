@@ -44,7 +44,7 @@ always @(*)begin
 		//result_o <= src2_i;		
 	end
 	else if(ctrl_i==4'b0111)begin //SLT
-		result_o <= (src1_i < src2_i)?1'b1:1'b0;
+		result_o <= (tmp_src1 < tmp_src2)?1'b1:1'b0;
 		//result_o <= (src1_i < src2_i)
 	end
 	else if(ctrl_i==4'b1111)begin //SRAV
@@ -61,7 +61,7 @@ always @(*)begin
 	else if(ctrl_i==4'b0011)begin //beq
 		result_o <= (src1_i - src2_i);	
 	end
-	else begin //bne
+	else if(ctrl_i==4'b0110)begin //bne
 		result_o <= (src1_i - src2_i);	
 	end
 	
