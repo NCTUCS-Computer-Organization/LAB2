@@ -43,15 +43,15 @@ always @( * ) begin
 	else if(instr_op_i== 11)begin //sltiu
 		RegWrite_o <= 1;
 		ALU_op_o   <= 3'b010;
-		ALUSrc_o   <= 0;
-		RegDst_o   <= 1;
+		ALUSrc_o   <= 1;
+		RegDst_o   <= 0;
 		Branch_o   <= 0;
 	end	
 	else if(instr_op_i== 4)begin //beq
 		RegWrite_o <= 0;
 		ALU_op_o   <= 3'b100;
-		ALUSrc_o   <= 1;
-		RegDst_o   <= 1;
+		ALUSrc_o   <= 0;
+		RegDst_o   <= 0;
 		Branch_o   <= 1; // not important		
 	end	
 	else if(instr_op_i== 15)begin //lui
@@ -71,8 +71,8 @@ always @( * ) begin
 	else if(instr_op_i==5)begin //bne
 		RegWrite_o <= 0;
 		ALU_op_o   <= 3'b110;
-		ALUSrc_o   <= 1;
-		RegDst_o   <= 1;
+		ALUSrc_o   <= 0;
+		RegDst_o   <= 0;
 		Branch_o   <= 1; // not important
 	end
 end

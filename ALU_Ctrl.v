@@ -44,7 +44,10 @@ always @( * ) begin
 		ALUCtrl_o <= 4'b0010; //ADD
 	end
 	else if(ALUOp_i==3'b010)begin
-		ALUCtrl_o <= 4'b0110; //bne
+		ALUCtrl_o <= 4'b0101; //sltiu
+	end
+	else if(ALUOp_i==3'b110)begin
+		ALUCtrl_o <= 4'b1001; //bne
 	end
 	else if(ALUOp_i==3'b100)begin
 		ALUCtrl_o <= 4'b0011; //beq
@@ -54,9 +57,6 @@ always @( * ) begin
 	end
 	else if(ALUOp_i==3'b111)begin
 		ALUCtrl_o <= 4'b0001; //ori		//ok
-	end
-	else begin
-		ALUCtrl_o <= 4'b1001;
 	end
 end
 
