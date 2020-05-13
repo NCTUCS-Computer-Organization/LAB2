@@ -1,7 +1,8 @@
 # LAB2
 
 ## 此次LAB的圖
-![](https://i.imgur.com/fOMfbVS.png)
+![](https://i.imgur.com/zhv9tFk.png)
+
 
 
 ## Files
